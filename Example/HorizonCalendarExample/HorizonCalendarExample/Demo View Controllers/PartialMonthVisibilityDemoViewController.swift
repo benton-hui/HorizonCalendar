@@ -52,6 +52,11 @@ final class PartialMonthVisibilityDemoViewController: DemoViewController {
           invariantViewProperties.backgroundShapeDrawingConfig.fillColor = .blue.withAlphaComponent(0.15)
         }
 
+        let dayOfWeek = calendar.component(.weekday, from: date!)
+        if dayOfWeek == 1 || dayOfWeek == 7 {
+          invariantViewProperties = DayView.InvariantViewProperties.baseNonInteractive
+        }
+
         return CalendarItemModel<DayView>(
           invariantViewProperties: invariantViewProperties,
           viewModel: .init(
