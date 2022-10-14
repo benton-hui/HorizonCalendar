@@ -66,6 +66,11 @@ public final class DayView: UIView {
 
     addSubview(label)
 
+    // If user interaction is disabled, adjust the label so it doesn't look clickable.
+    if isUserInteractionEnabled == false {
+      label.textColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+    }
+
     setHighlightLayerVisibility(isHidden: true, animated: false)
 
     if #available(iOS 13.4, *), supportsPointerInteraction {
